@@ -37,12 +37,12 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-target_include_directories(${PROJECT_NAME}
-  PRIVATE
-    include
-  SYSTEM
-    ${catkin_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
+target_include_directories(${PROJECT_NAME} PRIVATE
+  include
+)
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
+  ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
 )
 
 ## Declare a cpp executable
