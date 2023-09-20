@@ -25,7 +25,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS
 #  DEPENDS system_lib
@@ -37,18 +37,19 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+
+## Declare a cpp executable
+add_executable(${PROJECT_NAME}
+  src/grid_map_loader_node.cpp
+  src/GridMapLoader.cpp
+)
+
 target_include_directories(${PROJECT_NAME} PRIVATE
   include
 )
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
-)
-
-## Declare a cpp executable
-add_executable(${PROJECT_NAME}
-  src/grid_map_loader_node.cpp
-  src/GridMapLoader.cpp
 )
 
 ## Specify libraries to link a library or executable target against
